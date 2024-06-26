@@ -2,11 +2,27 @@ import styled from "styled-components";
 
 export const ContainerBox = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   height: 100vh;
-  background-color: #282c34;
+  background-color: #286A8D;
   color: white;
-  border: 1px solid black;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 480px) {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 `;
