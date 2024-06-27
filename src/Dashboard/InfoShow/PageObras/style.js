@@ -8,9 +8,71 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
 
-  // Responsivo
   @media (max-width: 768px) {
-    height: auto; /* Ajuste para altura automática */
+    height: auto;
+  }
+`;
+
+export const BoxNewObra = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 50%;
+  height: 100%;
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-left: 1rem;
+    background-color: #388e3c; /* Verde um pouco mais escuro */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 0.5rem;
+
+    button {
+      display: none;
+    }
+  }
+`;
+
+export const BoxSelect = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 50%;
+  height: 100%;
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    width: 25%;
+    box-sizing: border-box;
+    margin-left: 1rem;
+    background-color: #286a8d; /* Cor azul escuro */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    min-height: auto;
+    padding: 0.5rem;
+    width: 100%;
+
+    select {
+      margin-top: 1rem;
+      width: 100%;
+    }
   }
 `;
 
@@ -27,14 +89,13 @@ export const BoxSelectObra = styled.div`
     margin-left: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 0.5rem; /* Reduzi um pouco a margem inferior */
+    margin-bottom: 0.5rem;
     margin-top: 1rem;
   }
 
-  // Responsivo
   @media (max-width: 768px) {
-    min-height: auto; /* Ajuste para altura automática */
-    padding: 0.5rem; /* Reduzi o padding para economizar espaço */
+    min-height: auto;
+    padding: 0.5rem;
   }
 `;
 
@@ -48,44 +109,43 @@ export const BoxInput = styled.div`
 
   select {
     margin-left: 1rem;
-    padding: 8px; /* Aumentei o padding para melhorar o visual em dispositivos móveis */
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 20%; /* Aumentei a largura para ocupar mais espaço */
+    width: 30%;
     box-sizing: border-box;
-  }
-
-  button {
-    padding: 10px; /* Aumentei o padding para melhorar a usabilidade em telas menores */
-    border: none; /* Removi a borda para um visual mais limpo */
-    border-radius: 6px;
-    width: 10%; /* Ajustei a largura para ocupar uma porção maior da tela */
-    box-sizing: border-box;
-    margin-left: 1rem;
-    background-color: #286a8d; /* Cor azul escuro */
-    color: white; /* Texto em branco para contrastar */
-    cursor: pointer; /* Adicionei cursor pointer para indicar interatividade */
-    transition: background-color 0.3s ease; /* Adicionei transição suave na mudança de cor */
   }
 
   button:hover {
     background-color: #1c4d6b; /* Cor mais escura ao passar o mouse */
   }
 
-  // Responsivo
   @media (max-width: 768px) {
-    flex-direction: column; /* Altera para coluna em telas menores */
-    
+    flex-direction: column;
+
     select {
-      margin-left: 0; /* Remove margem esquerda */
-      margin-top: 1rem; /* Adiciona margem superior */
-      width: 90%; /* Ocupa toda a largura disponível */
-      margin:0;
+      margin-left: 0;
+      margin-top: 1rem;
+      width: 90%;
     }
 
     button {
-      margin-top: 1rem; /* Adiciona margem superior ao botão */
-      width: 50%; /* Ocupa toda a largura disponível */
+      margin-top: 1rem;
+      width: 50%;
     }
+  }
+`;
+
+
+export const ContainerDadosObra = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  min-height: 85%;
+
+  @media (max-width: 768px) {
+    min-height: auto;
   }
 `;

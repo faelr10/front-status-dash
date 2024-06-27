@@ -19,8 +19,6 @@ export const LeftBarContainer = styled.div`
   @media (max-width: 768px) {
     width: 30%;
   }
-
-  
 `;
 
 export const TitleLeftBar = styled.div`
@@ -73,7 +71,6 @@ export const Option = styled.div`
   }
 
   @media (max-width: 480px) {
-    
     font-size: 12px;
   }
 `;
