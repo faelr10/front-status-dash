@@ -40,7 +40,7 @@ export function InfoShow({ content }) {
 
   return (
     <InfoShowBox>
-      <h1>{pageTitle}</h1>
+      <h1 style={{ margin:"0" }}>{pageTitle}</h1>
       {renderPage()}
     </InfoShowBox>
   );

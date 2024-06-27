@@ -10,6 +10,7 @@ import {
   RegisterContainer,
 } from "./style";
 import { getObrasHttp } from "../../../HttpRequest/Obras/httpRequest";
+import { getFuncionariosHttp } from "../../../HttpRequest/Funcionarios/httpRequest";
 
 export function PageStatusGestor() {
   const [obras, setObras] = useState([]);
@@ -18,6 +19,8 @@ export function PageStatusGestor() {
     data: "",
     obra_id: "",
   });
+  const [funcionarios, setFuncionarios] = useState([]);
+
   useEffect(() => {
     fetchObras();
   }, []);
@@ -29,6 +32,14 @@ export function PageStatusGestor() {
       })
       .catch((error) => {
         console.error("Error fetching obras:", error);
+      });
+
+    getFuncionariosHttp()
+      .then((response) => {
+        setFuncionarios(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching funcionarios:", error);
       });
   };
 
@@ -95,10 +106,11 @@ export function PageStatusGestor() {
             <label>Responsável</label>
             <select onChange={handleResponsavelChange}>
               <option value="">Selecione...</option>
-              <option value="Diego">Diego</option>
-              <option value="Gabriel">Gabriel</option>
-              <option value="Amaral">Amaral</option>
-              <option value="Tião">Tião</option>
+              {funcionarios.map((obra) => (
+                <option key={obra.id} value={obra.id}>
+                  {obra.nome}
+                </option>
+              ))}
             </select>
           </BoxRegisterFunction>
           <BoxRegisterHoras>
