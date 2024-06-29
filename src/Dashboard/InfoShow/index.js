@@ -4,6 +4,7 @@ import { SelectPage } from "./helpersInfoShow/selectPage";
 import { PageFinanceiro } from "./PageFinanceiro";
 import { PageObras } from "./PageObras";
 import { PageStatusGestor } from "./PageStatusGestor";
+import { PageFuncionarios } from "./PageFuncionarios";
 
 export const Content = {
   StatusGestor: "StatusGestor",
@@ -33,6 +34,8 @@ export function InfoShow({ content }) {
         return <PageObras />;
       case Content.StatusGestor:
         return <PageStatusGestor />;
+      case Content.funcionarios:
+        return <PageFuncionarios />;
       default:
         return <div>Conteúdo não encontrado</div>;
     }
@@ -40,7 +43,7 @@ export function InfoShow({ content }) {
 
   return (
     <InfoShowBox>
-      <h1 style={{ margin:"0" }}>{pageTitle}</h1>
+      <h1 style={{ margin: "0" }}>{pageTitle}</h1>
       {renderPage()}
     </InfoShowBox>
   );
