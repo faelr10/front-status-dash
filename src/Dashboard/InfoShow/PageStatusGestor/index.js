@@ -11,6 +11,7 @@ import {
 } from "./style";
 import { getObrasHttp } from "../../../HttpRequest/Obras/httpRequest";
 import { getFuncionariosHttp } from "../../../HttpRequest/Funcionarios/httpRequest";
+import { postDetailsHttp } from "../../../HttpRequest/DetailsObras/httpRequest";
 
 export function PageStatusGestor() {
   const [obras, setObras] = useState([]);
@@ -78,8 +79,17 @@ export function PageStatusGestor() {
     }));
   };
 
-  const handleRegister = () => {
-    console.log(selectedAllDataObra);
+  const handleRegister = async () => {
+    // Converte as horas para um número inteiro, se necessário
+    selectedAllDataObra.responsaveis[0].horas = parseInt(selectedAllDataObra.responsaveis[0].horas);
+  
+    try {
+      // Chama a função de requisição HTTP assíncrona para postar os detalhes da obra
+      const response = await postDetailsHttp(selectedAllDataObra);
+      console.log("Sucesso:", response); // Exibe mensagem de sucesso com a resposta completa, se necessário
+    } catch (error) {
+      console.error("Erro:", error); // Exibe detalhes do erro, se ocorrer algum problema na requisição
+    }
   };
 
   return (
@@ -103,7 +113,7 @@ export function PageStatusGestor() {
             </select>
           </BoxRegisterObra>
           <BoxRegisterFunction>
-            <label>Responsável</label>
+            <label>Funcionário</label>
             <select onChange={handleResponsavelChange}>
               <option value="">Selecione...</option>
               {funcionarios.map((obra) => (

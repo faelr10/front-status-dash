@@ -8,6 +8,7 @@ import {
   Container,
   RegisterContainer,
 } from "./style";
+import { postFuncionarioHttp } from "../../../HttpRequest/Funcionarios/httpRequest";
 
 const funcionarios = ["Bombeiro1", "Bombeiro2", "Auxiliar", "Encarregado"];
 
@@ -40,6 +41,7 @@ export function PageFuncionarios() {
 
   const handleRegister = () => {
     console.log(inputNewFuncionario);
+    postFuncionarioHttp(inputNewFuncionario);
   };
 
   return (
