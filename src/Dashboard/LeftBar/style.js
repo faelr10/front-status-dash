@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 export const LeftBarContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  height: 100vh;
   background-color: #286a8d; /* Cor de fundo mais escura */
   color: white;
   width: 18%;
   transition: width 0.3s ease; /* Adiciona transição para a largura */
+  min-height: 100%;
 
   @media (max-width: 1024px) {
     width: 25%;

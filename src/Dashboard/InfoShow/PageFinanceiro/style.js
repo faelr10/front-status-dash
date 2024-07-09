@@ -5,7 +5,7 @@ export const InfoShowBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  height: 100vh;
+  min-height: 100vh;
   width: 82%;
   background-color: #f0f4f8;
   color: #333333;
@@ -138,7 +138,6 @@ export const BoxInfoDetails = styled.div`
   color: #333333;
   //border: 1px solid silver;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  overflow-y: auto;
 `;
 
 export const BoxTitleInfoDetails = styled.div`
@@ -205,7 +204,6 @@ export const BoxAllDataInfoDetails = styled.div`
   width: 98%;
   height: 80%;
   margin-top: 10px;
-  overflow-y: auto;
 `;
 
 export const BoxDataInfoDetails = styled.div`

@@ -19,11 +19,28 @@ import {
   getObrasHttpById,
 } from "../../../HttpRequest/Obras/httpRequest";
 import Modal from "./Modal/newObraModal";
+import ModalShowImpostos from "./Modal/ShowImpostos.js";
+import ModalShowOutros from "./Modal/ShowOutros/index.js";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 export function PageObras() {
   const [obras, setObras] = useState([]);
   const [selectedObraId, setSelectedObraId] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [isModalImpostosOpen, setIsModalImpostosOpen] = useState(false);
+  const [impostos, setImpostos] = useState("");
+
+  const [outros, setOutros] = useState("");
+  const [isModalOutrosOpen, setIsModalOutrosOpen] = useState(false);
+
   const [dataObra, setDataObra] = useState({});
   const [dadosView, setDadosView] = useState(false);
 
@@ -65,11 +82,71 @@ export function PageObras() {
   const openModal = () => {
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
     fetchObras(); // Atualiza as obras após fechar o modal
   };
+
+  const openModalImpostos = (item) => {
+    setImpostos(item);
+    setIsModalImpostosOpen(true);
+  };
+  const closeModalImpostos = () => {
+    setIsModalImpostosOpen(false);
+  };
+
+  const openModalOutros = (item) => {
+    setOutros(item);
+    setIsModalOutrosOpen(true);
+  };
+  const closeModalOutros = () => {
+    setIsModalOutrosOpen(false);
+  };
+
+  const data = [
+    {
+      name: "Janeiro",
+      uv: 5,
+      pv: 10,
+      amt: 12,
+    },
+    {
+      name: "Fevereiro",
+      uv: 10,
+      pv: 20,
+      amt: 15,
+    },
+    {
+      name: "Março",
+      uv: 15,
+      pv: 25,
+      amt: 20,
+    },
+    {
+      name: "Abril",
+      uv: 20,
+      pv: 40,
+      amt: 30,
+    },
+    {
+      name: "Maio",
+      uv: 40,
+      pv: 70,
+      amt: 55,
+    },
+    {
+      name: "Junho",
+      uv: 60,
+      pv: 85,
+      amt: 72,
+    },
+    {
+      name: "Julho",
+      uv: 100,
+      pv: 100,
+      amt: 100,
+    },
+  ];
 
   return (
     <Container style={{}}>
@@ -99,7 +176,7 @@ export function PageObras() {
           </h1>
 
           <BoxCardsInfo>
-            <CardsInfo>
+            {/* <CardsInfo>
               <label style={{ marginBottom: "10px" }}>PROGRESSO DA OBRA</label>
               <ProgressBar>
                 <ProgressFill percentage={25}></ProgressFill>
@@ -114,7 +191,21 @@ export function PageObras() {
                 <ProgressFill percentage={35}></ProgressFill>
               </ProgressBar>
               <PercentageText>{35}%</PercentageText>
-            </CardsInfo>
+            </CardsInfo> */}
+            <ResponsiveContainer width="70%" height="100%">
+              <LineChart data={data}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <CartesianGrid stroke="#eee" />
+                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                <Line
+                  type="monotone"
+                  dataKey="pv"
+                  stroke="#82ca9d"
+                  activeDot={{ r: 8 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </BoxCardsInfo>
 
           <BoxDadosObra>
@@ -142,7 +233,33 @@ export function PageObras() {
           </BoxDadosObra>
 
           <BoxDadosObra>
-            <h3 style={{ margin: "0" }}>Detalhes por função</h3>
+            <h3 style={{ margin: "0" }}>Encargos da obra</h3>
+            <Table>
+              <thead>
+                <tr>
+                  <th>ENCARGO</th>
+                  <th>VALOR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6% NOTA FISCAL</td>
+                  <td>R$ 400,00</td>
+                </tr>
+                <tr>
+                  <td>CONTABILIDADE</td>
+                  <td>R$ 2400,00</td>
+                </tr>
+                <tr>
+                  <td>MÃO DE OBRA</td>
+                  <td>R$ 22400,00</td>
+                </tr>
+                
+              </tbody>
+            </Table>
+          </BoxDadosObra>
+          <BoxDadosObra>
+            <h3 style={{ margin: "0" }}>Encargos por função</h3>
             <Table>
               <thead>
                 <tr>
@@ -158,19 +275,74 @@ export function PageObras() {
                 {dataObra.dados_obra.map((item, index) => (
                   <tr key={index}>
                     <td>{item.funcao}</td>
-                    <td>{item.total_horas}</td>
-                    <td>R$ {item.gastos_encargos}</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>R$ {item.gastos_encargos}</td>
+                    <td>{item.total_horas}h</td>
+                    <td>R$ {item.salario}</td>
+                    <td onClick={() => openModalImpostos(item)}>
+                      R$ {item.total_impostos}
+                    </td>
+                    <td onClick={() => openModalOutros(item)}>
+                      R$ {item.total_outros}
+                    </td>
+                    <td>R$ {item.total_gastos}</td>
                   </tr>
                 ))}
+              </tbody>
+            </Table>
+          </BoxDadosObra>
+          <BoxDadosObra>
+            <h3 style={{ margin: "0" }}>Encargos por funcionário</h3>
+            <Table>
+              <thead>
+                <tr>
+                  <th>FUNCIONÁRIO</th>
+                  <th>TOTAL_HORAS</th>
+                  <th>VALOR_HORAS_SALÁRIO_TOTAL</th>
+                  <th>VALOR_IMPOSTOS</th>
+                  <th>VALOR_OUTROS</th>
+                  <th>VALOR_TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Diego</td>
+                  <td>220h</td>
+                  <td>R$ 1986,00</td>
+                  <td>R$ 1034,20</td>
+                  <td>R$ 623,40</td>
+                  <td>R$ 3652,60</td>
+                </tr>
+                <tr>
+                  <td>Gabriel</td>
+                  <td>220h</td>
+                  <td>R$ 1986,00</td>
+                  <td>R$ 1034,20</td>
+                  <td>R$ 623,40</td>
+                  <td>R$ 3652,60</td>
+                </tr>
+                <tr>
+                  <td>Pedro</td>
+                  <td>220h</td>
+                  <td>R$ 1986,00</td>
+                  <td>R$ 1034,20</td>
+                  <td>R$ 623,40</td>
+                  <td>R$ 3652,60</td>
+                </tr>
               </tbody>
             </Table>
           </BoxDadosObra>
         </ContainerDadosObra>
       )}
       <Modal isOpen={isModalOpen} onClose={closeModal} />
+      <ModalShowImpostos
+        isOpen={isModalImpostosOpen}
+        onClose={closeModalImpostos}
+        dataObra={impostos}
+      />
+      <ModalShowOutros
+        isOpen={isModalOutrosOpen}
+        onClose={closeModalOutros}
+        dataObra={outros}
+      />
     </Container>
   );
 }

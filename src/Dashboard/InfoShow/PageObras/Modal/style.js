@@ -13,13 +13,14 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  background-color: white;
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
   width: 40rem;
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* sombra suave */
 `;
 
 export const ModalHeader = styled.div`
@@ -30,8 +31,35 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin: 0;
+  color: #333; /* cor do título */
+`;
+
+export const ModalData = styled.div`
+display: flex;
+align-items: start;
+justify-content: center;
+flex-direction: column;
+  margin-top: 1rem;
+`;
+
+export const DataItem = styled.div`
+  font-size: 1.2rem;
+  color: #555; /* cor do texto */
+  width: 100%;
+  display: flex;
+`;
+
+export const DataLabel = styled.span`
+  font-weight: bold;
+  margin-right: 0.5rem;
+  width: 10rem;
+  display: flex;
+`;
+
+export const DataValue = styled.span`
+  color: #777; /* cor do valor */
 `;
 
 export const Form = styled.form`

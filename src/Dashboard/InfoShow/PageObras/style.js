@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -82,14 +82,13 @@ export const BoxSelectObra = styled.div`
   align-items: start;
   justify-content: start;
   width: 100%;
-  min-height: 10%;
+  min-height: 8%;
   border-bottom: 1px solid #ccc;
 
   label {
     margin-left: 1rem;
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 1rem;
   }
 
   @media (max-width: 768px) {
@@ -142,8 +141,7 @@ export const ContainerDadosObra = styled.div`
   justify-content: start;
   width: 100%;
   min-height: 85%;
-  overflow-y: auto; /* Adiciona scroll vertical se necessário */
-  overflow-x: hidden; /* Esconde o scroll horizontal */
+  //overflow-y: auto; /* Adiciona scroll vertical se necessário */
 
   //border: 1px solid #ccc;
 
@@ -169,6 +167,8 @@ export const BoxDadosObra = styled.div`
   width: 100%;
   min-height: 10rem;
   margin-top: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 50px;
   //border: 1px solid #ccc;
 `;
 
@@ -177,7 +177,7 @@ export const BoxCardsInfo = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 62%;
-  height: 20%;
+  height: 25vh;
   /* border: 1px solid #ccc; */
 `;
 

@@ -4,7 +4,7 @@ export const ContainerBox = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #286A8D;
   color: white;
   width: 100%;

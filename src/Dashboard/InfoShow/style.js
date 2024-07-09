@@ -5,12 +5,14 @@ export const InfoShowBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  height: 100vh;
+  height: 10 0vh;
   width: 82%;
   background-color: #f0f4f8;
+  border: 1px solid #e0e0e0;
   color: #333333;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
+  //se precisar de scroll
 
   @media (max-width: 1200px) {
     width: 90%;
