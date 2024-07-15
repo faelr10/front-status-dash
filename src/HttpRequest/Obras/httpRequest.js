@@ -1,13 +1,13 @@
 import axios from "axios";
 
 export async function getObrasHttp() {
-  return axios.get("http://localhost:3000/obras");
+  return axios.get("https://status-dash.vercel.app/obras");
 }
 
 export async function postObraHttp(obra) {
-  return axios.post("http://localhost:3000/obras", obra);
+  return axios.post("https://status-dash.vercel.app/obras", obra);
 }
 
 export async function getObrasHttpById(id) {
-  return axios.get(`http://localhost:3000/obras/${id}`);
+  return axios.get(`https://status-dash.vercel.app/obras/${id}`);
 }
