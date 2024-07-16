@@ -48,7 +48,7 @@ export function PageStatusGestor() {
     console.log(e.target.value);
     setSelectedAllDataObra((prevState) => ({
       ...prevState,
-      data: e.target.value,
+      date: e.target.value,
     }));
   }
 
