@@ -177,7 +177,7 @@ export const BoxCardsInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 62%;
+  width: 82%;
   height: 25vh;
   /* border: 1px solid #ccc; */
 `;
