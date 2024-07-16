@@ -29,38 +29,22 @@ const ModalShowOutros = ({ isOpen, onClose, dataObra }) => {
             </TableRow>
           </TableHeader>
           <TableBody>
+
             <TableRow>
               <TableCell>CESTA BÁSICA</TableCell>
-              <TableCell>{impostos.fgts}</TableCell>
+              <TableCell>R$ {impostos.others.basic_food_basket}</TableCell>
             </TableRow>
+            
             <TableRow>
               <TableCell>CAFÉ</TableCell>
-              <TableCell>{impostos.salario_13}</TableCell>
+              <TableCell>R$ {impostos.others.coffe_dailly}</TableCell>
             </TableRow>
+
             <TableRow>
               <TableCell>VALE TRANSPORTE</TableCell>
-              <TableCell>{impostos.vale_transporte}</TableCell>
+              <TableCell>R$ {impostos.others.transport}</TableCell>
             </TableRow>
-            {/* <TableRow>
-                <TableCell>FGTS 13º SALÁRIO</TableCell>
-                <TableCell>{impostos.fgts_13_Salario}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>FÉRIAS</TableCell>
-                <TableCell>{impostos.ferias}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>1/3 FÉRIAS</TableCell>
-                <TableCell>{impostos.um_terco_ferias}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>MULTA 50% FGTS</TableCell>
-                <TableCell>{impostos.multa_fgts}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>BDI</TableCell>
-                <TableCell>{impostos.valor_20_por_cento}</TableCell>
-              </TableRow> */}
+
             <TableRow>
               <TableCell
                 style={{ fontWeight: "bold", backgroundColor: "#f0f0f0" }}

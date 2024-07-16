@@ -31,31 +31,31 @@ const ModalShowImpostos = ({ isOpen, onClose, dataObra }) => {
           <TableBody>
             <TableRow>
               <TableCell>FGTS</TableCell>
-              <TableCell>{impostos.fgts}</TableCell>
+              <TableCell>R$ {impostos.taxes.fgts}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>13º SALÁRIO</TableCell>
-              <TableCell>{impostos.salario_13}</TableCell>
+              <TableCell>R$ {impostos.taxes.thirteen_salary}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>FGTS 13º SALÁRIO</TableCell>
-              <TableCell>{impostos.fgts_13_Salario}</TableCell>
+              <TableCell>R$ {impostos.taxes.fgts_13_salary}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>FÉRIAS</TableCell>
-              <TableCell>{impostos.ferias}</TableCell>
+              <TableCell>R$ {impostos.taxes.vacation}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>1/3 FÉRIAS</TableCell>
-              <TableCell>{impostos.um_terco_ferias}</TableCell>
+              <TableCell>R$ {impostos.taxes.vacation_one_third}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>MULTA 50% FGTS</TableCell>
-              <TableCell>{impostos.multa_fgts}</TableCell>
+              <TableCell>R$ {impostos.taxes.fine_dismissal}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>BDI</TableCell>
-              <TableCell>{impostos.valor_20_por_cento}</TableCell>
+              <TableCell>R$ {impostos.taxes.bdi}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell

@@ -77,8 +77,6 @@ export function PageObras() {
     }
   };
 
-  console.log(dataObra);
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -172,26 +170,10 @@ export function PageObras() {
       {dadosView === false ? null : (
         <ContainerDadosObra>
           <h1>
-            {dataObra.nome} - {dataObra.construtora}
+            {dataObra.name} - {dataObra.construction_company}
           </h1>
 
           <BoxCardsInfo>
-            {/* <CardsInfo>
-              <label style={{ marginBottom: "10px" }}>PROGRESSO DA OBRA</label>
-              <ProgressBar>
-                <ProgressFill percentage={25}></ProgressFill>
-              </ProgressBar>
-              <PercentageText>{25}%</PercentageText>
-            </CardsInfo>
-            <CardsInfo>
-              <label style={{ marginBottom: "10px" }}>
-                PERCENTUAL RECEBIDO
-              </label>
-              <ProgressBar>
-                <ProgressFill percentage={35}></ProgressFill>
-              </ProgressBar>
-              <PercentageText>{35}%</PercentageText>
-            </CardsInfo> */}
             <ResponsiveContainer width="70%" height="100%">
               <LineChart data={data}>
                 <XAxis dataKey="name" />
@@ -222,7 +204,7 @@ export function PageObras() {
               </thead>
               <tbody>
                 <tr>
-                  <td>{dataObra.construtora}</td>
+                  <td>{dataObra.construction_company}</td>
                   <td>R$ 35.000</td>
                   <td>R$ 65.000</td>
                   <td>R$ 100.000</td>
@@ -254,7 +236,6 @@ export function PageObras() {
                   <td>MÃO DE OBRA</td>
                   <td>R$ 22400,00</td>
                 </tr>
-                
               </tbody>
             </Table>
           </BoxDadosObra>
@@ -272,16 +253,18 @@ export function PageObras() {
                 </tr>
               </thead>
               <tbody>
-                {dataObra.dados_obra.map((item, index) => (
+                {dataObra.data_obra.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.funcao}</td>
-                    <td>{item.total_horas}h</td>
-                    <td>R$ {item.salario}</td>
+                    <td>{item.function}</td>
+                    <td>{item.total_hours}h</td>
+                    <td>R$ {item.hours_worked_value}</td>
                     <td onClick={() => openModalImpostos(item)}>
-                      R$ {item.total_impostos}
+                      {/* R$ {item.total_impostos} */}
+                      R$ 3.000,00
                     </td>
                     <td onClick={() => openModalOutros(item)}>
-                      R$ {item.total_outros}
+                      {/* R$ {item.total_outros} */}
+                      R$ 3.000,00
                     </td>
                     <td>R$ {item.total_gastos}</td>
                   </tr>

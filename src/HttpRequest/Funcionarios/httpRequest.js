@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export async function getFuncionariosHttp() {
-  return axios.get("https://status-dash.vercel.app/funcionarios");
+  return axios.get(`${process.env.REACT_APP_URL_API}/funcionarios`);
 }
 
 export async function postFuncionarioHttp(funcionario) {
-  return axios.post("https://status-dash.vercel.app/funcionarios", funcionario);
+  return axios.post(`${process.env.REACT_APP_URL_API}/funcionarios`, funcionario);
 }
 
 // export async function postObraHttp(obra) {
