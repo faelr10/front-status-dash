@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BoxRegister,
   BoxRegisterButton,
@@ -9,11 +9,27 @@ import {
   RegisterContainer,
 } from "./style";
 import { postFuncionarioHttp } from "../../../HttpRequest/Funcionarios/httpRequest";
+import { getAllCargosHttp } from "../../../HttpRequest/Cargos/httpRequest";
 
 const funcionarios = ["Bombeiro1", "Bombeiro2", "Auxiliar", "Encarregado"];
 
 export function PageFuncionarios() {
   const [inputNewFuncionario, setInputNewFuncionario] = useState({});
+  const [cargos, setCargos] = useState([]);
+
+  useEffect(() => {
+    fetchObras();
+  }, []);
+
+  const fetchObras = () => {
+    getAllCargosHttp()
+      .then((response) => {
+        setCargos(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching obras:", error);
+      });
+  };
 
   function handleDocumentChange(e) {
     console.log(e.target.value);
@@ -57,9 +73,9 @@ export function PageFuncionarios() {
             <label>Cargo</label>
             <select onChange={handleCargoChange}>
               <option value="">Selecione...</option>
-              {funcionarios.map((func) => (
-                <option key={func} value={func}>
-                  {func}
+              {cargos.map((func) => (
+                <option key={func.id} value={func}>
+                  {func.nome}
                 </option>
               ))}
             </select>
