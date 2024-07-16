@@ -163,14 +163,15 @@ export const BoxDadosObra = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center; /* Ajustado para centralizar */
   width: 100%;
   min-height: 10rem;
   margin-top: 1rem;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 50px;
-  //border: 1px solid #ccc;
+  padding-bottom: 1rem; /* Reduzido o espaçamento inferior */
+  overflow-x: auto; /* Adicionado para rolagem horizontal em telas menores */
 `;
+
 
 export const BoxCardsInfo = styled.div`
   display: flex;
@@ -221,12 +222,14 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  overflow-x: auto; /* Adicionado para rolagem horizontal em telas menores */
 
   th,
   td {
     border: 1px solid #dddddd;
     padding: 12px;
     text-align: center;
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
   }
 
   th {
@@ -234,11 +237,6 @@ export const Table = styled.table`
     color: #333333;
     font-weight: bold;
     text-transform: uppercase;
-  }
-
-  td {
-    background-color: #ffffff;
-    color: #333333;
   }
 
   tbody tr:nth-child(even) {
@@ -249,9 +247,13 @@ export const Table = styled.table`
     background-color: #f0f0f0;
   }
 
-  .clickable {
-    cursor: pointer;
-    text-decoration: underline;
-    color: blue;
+  @media (max-width: 768px) {
+    /* Estilos para telas menores */
+    th,
+    td {
+      padding: 8px; /* Reduzir o padding para economizar espaço */
+      font-size: 14px; /* Reduzir o tamanho da fonte */
+    }
   }
 `;
+
