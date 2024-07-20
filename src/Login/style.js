@@ -26,6 +26,11 @@ export const BoxLogin = styled.div`
 
   border: 1px solid #e0e0e0;
   border-radius: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    height: 80%;
+  }
 `;
 
 export const BoxImgTitle = styled.div`
