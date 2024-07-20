@@ -11,6 +11,10 @@ function App() {
 
   // Aqui você teria sua lógica para definir isLoggedIn baseado na autenticação do usuário
 
+  function handleLogin() {
+    setIsLoggedIn(true);
+  }
+
   return (
     <Router>
       <div className="App" style={{ display: "flex" }}>
@@ -33,7 +37,7 @@ function App() {
             </Routes>
           </>
         ) : (
-          <Login /> // Supondo que você tenha um componente Login para renderizar
+          <Login handleLogin={handleLogin} /> // Supondo que você tenha um componente Login para renderizar
         )}
       </div>
     </Router>

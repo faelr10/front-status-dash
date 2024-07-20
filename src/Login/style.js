@@ -83,7 +83,6 @@ export const BoxPassword = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
-  border: 1px solid #e0e0e0;
 
   label {
     color: #101010;
@@ -111,7 +110,6 @@ export const BoxPassword = styled.div`
 export const ForgotPassword = styled.div`
   width: 90%;
   height: 10%;
-  border: 1px solid #e0e0e0;
 
   display: flex;
   align-items: flex-start;
@@ -126,11 +124,41 @@ export const ForgotPassword = styled.div`
 export const BoxEnter = styled.div`
   width: 100%;
   height: 12%;
-  border: 1px solid #e0e0e0;
+  //border: 1px solid #e0e0e0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    width: 60%;
+    height: 70%;
+    background-color: #286a8d;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /* Estilo padrão */
+    &:hover {
+      background-color: #1c4b63;
+    }
+  }
 `;
 
 export const BoxRegister = styled.div`
   width: 100%;
   height: 12%;
-  border: 1px solid #e0e0e0;
+  //border: 1px solid #e0e0e0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: #286a8d;
+    text-decoration: none;
+  }
 `;
