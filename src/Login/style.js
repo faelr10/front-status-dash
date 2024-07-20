@@ -11,7 +11,6 @@ export const Container = styled.div`
 
   background-color: #286a8d;
 
-  border: 1px solid red;
 `;
 
 export const BoxLogin = styled.div`
