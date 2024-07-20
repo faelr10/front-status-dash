@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getObrasHttp() {
   console.log(process.env.REACT_APP_URL_API);
-  return axios.get(`https://status-dash.vercel.app/obras`);
+  return axios.get(`${process.env.REACT_APP_URL_API}/obras`);
 }
 
 export async function postObraHttp(obra) {

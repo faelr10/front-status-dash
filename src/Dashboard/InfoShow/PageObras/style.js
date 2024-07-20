@@ -170,8 +170,13 @@ export const BoxDadosObra = styled.div`
   border-bottom: 1px solid #ccc;
   padding-bottom: 1rem; /* Reduzido o espaçamento inferior */
   overflow-x: auto; /* Adicionado para rolagem horizontal em telas menores */
-`;
 
+  border: 1px solid black;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
 
 export const BoxCardsInfo = styled.div`
   display: flex;
@@ -205,11 +210,7 @@ export const ProgressBar = styled.div`
 export const ProgressFill = styled.div`
   height: 100%;
   width: ${(props) => props.percentage}%;
-  background: linear-gradient(
-    to left,
-    #33cc33,
-    #ff6666
-  ); /* Cores gradativas */
+  background: linear-gradient(to left, #33cc33, #ff6666); /* Cores gradativas */
   border-radius: 5px;
   transition: width 0.5s ease; /* Transição suave da largura */
 `;
@@ -246,14 +247,4 @@ export const Table = styled.table`
   tbody tr:hover {
     background-color: #f0f0f0;
   }
-
-  @media (max-width: 768px) {
-    /* Estilos para telas menores */
-    th,
-    td {
-      padding: 8px; /* Reduzir o padding para economizar espaço */
-      font-size: 14px; /* Reduzir o tamanho da fonte */
-    }
-  }
 `;
-
