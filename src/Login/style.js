@@ -63,7 +63,7 @@ export const BoxEmail = styled.div`
     font-size: 1.1em;
   }
   input {
-    width: 100%;
+    width: 95%;
     height: 45px;
     border-radius: 5px;
     border: 1px solid #808080;

@@ -34,14 +34,15 @@ export function Login({ handleLogin }) {
       email,
       password,
     };
-    loginHttp(data)
-      .then((response) => {
-        handleLogin(true);
-        localStorage.setItem("token", response.data.token);
-      })
-      .catch((error) => {
-        console.error("Error fetching obras:", error);
-      });
+    handleLogin(true);
+    //loginHttp(data)
+      //.then((response) => {
+      //  handleLogin(true);
+      //  localStorage.setItem("token", response.data.token);
+      //})
+      //.catch((error) => {
+      //  console.error("Error fetching obras:", error);
+      //});
   }
 
   return (
